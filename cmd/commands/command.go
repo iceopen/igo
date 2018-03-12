@@ -2,7 +2,9 @@ package commands
 
 import (
 	"flag"
+	"igo/utils"
 	"io"
+	"os"
 	"strings"
 )
 
@@ -47,4 +49,39 @@ func (c *Command) Name() string {
 		name = name[:i]
 	}
 	return name
+}
+
+// Out returns the out writer of the current command.
+// If cmd.output is nil, os.Stderr is used.
+func (c *Command) Out() io.Writer {
+	if c.output != nil {
+		return *c.output
+	}
+	return os.Stderr
+}
+
+// Usage puts out the Usage for the command.
+func (c *Command) Usage() {
+	utils.Tmpl(cmdUsage, c)
+	os.Exit(2)
+}
+
+// Runnable reports whether the command can be run; otherwise
+// it is a documentation pseudo-command such as import path.
+func (c *Command) Runnable() bool {
+	return c.Run != nil
+}
+
+// Options
+func (c *Command) Options() map[string]string {
+	options := make(map[string]string)
+	c.Flag.VisitAll(func(f *flag.Flag) {
+		defaultVal := f.DefValue
+		if len(defaultVal) > 0 {
+			options[f.Name+"="+defaultVal] = f.Usage
+		} else {
+			options[f.Name] = f.Usage
+		}
+	})
+	return options
 }

@@ -1,84 +1,49 @@
 package version
 
 import (
-	"fmt"
 	"igo/cmd/commands"
+	"log"
 	"os"
 	"os/exec"
 	"runtime"
 	"strings"
-	"encoding/json"
-	"log"
-	"bytes"
-	"gopkg.in/yaml.v2"
-)
 
-const verboseVersionBanner string = `%s%s______
-igo v{{ .BeeVersion }}%s
-%s%s
-├── GoVersion : {{ .GoVersion }}
-├── GOOS      : {{ .GOOS }}
-├── GOARCH    : {{ .GOARCH }}
-├── NumCPU    : {{ .NumCPU }}
-├── GOPATH    : {{ .GOPATH }}
-├── GOROOT    : {{ .GOROOT }}
-├── Compiler  : {{ .Compiler }}
-└── Date      : {{ Now "Monday, 2 Jan 2006" }}%s
-`
+	"github.com/fatih/color"
+)
 
 var outputFormat string
 
 const version = "1.0.0"
 
-func init() {
-
+var CmdVersion = &commands.Command{
+	UsageLine: "version",
+	Short:     "Prints the current Bee version",
+	Long: `
+Prints the current Bee, Beego and Go version alongside the platform information.
+`,
+	Run: VersionCmd,
 }
 
-func versionCmd(cmd *commands.Command, args []string) int {
+func init() {
+	commands.AvailableCommands = append(commands.AvailableCommands, CmdVersion)
+}
 
-	cmd.Flag.Parse(args)
-	stdout := cmd.Out()
+func VersionCmd(cmd *commands.Command, args []string) int {
+	color.Blue("版本和环境变量配置")
 
-	if outputFormat != "" {
-		runtimeInfo := RuntimeInfo{
-			GetGoVersion(),
-			runtime.GOOS,
-			runtime.GOARCH,
-			runtime.NumCPU(),
-			os.Getenv("GOPATH"),
-			runtime.GOROOT(),
-			runtime.Compiler,
-			version,
-		}
-		switch outputFormat {
-		case "json":
-			{
-				b, err := json.MarshalIndent(runtimeInfo, "", "    ")
-				if err != nil {
-					log.Fatal(err.Error())
-				}
-				fmt.Println(string(b))
-				return 0
-			}
-		case "yaml":
-			{
-				b, err := yaml.Marshal(&runtimeInfo)
-				if err != nil {
-					log.Fatal(err.Error())
-				}
-				fmt.Println(string(b))
-				return 0
-			}
-		}
+	runtimeInfo := RuntimeInfo{
+		GetGoVersion(),
+		runtime.GOOS,
+		runtime.GOARCH,
+		runtime.NumCPU(),
+		os.Getenv("GOPATH"),
+		runtime.GOROOT(),
+		runtime.Compiler,
+		version,
 	}
-
-	coloredBanner := fmt.Sprintf(verboseVersionBanner, "\x1b[35m", "\x1b[1m",
-		"\x1b[0m", "\x1b[32m", "\x1b[1m", "\x1b[0m")
-	InitBanner(stdout, bytes.NewBufferString(coloredBanner))
+	color.Red("", runtimeInfo)
 	return 0
 }
-
-
 
 func GetGoVersion() string {
 	var (
