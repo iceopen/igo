@@ -13,7 +13,7 @@ import (
 // 加载 dep 工具
 
 var CmdRun = &commands.Command{
-	UsageLine: "dep [download] [init]",
+	UsageLine: "dep [init]",
 	Short:     "dep",
 	Long:      ``,
 	PreRun:    func(cmd *commands.Command, args []string) {},
@@ -28,7 +28,7 @@ func init() {
 func RunApp(cmd *commands.Command, args []string) int {
 	color.Red("dep 工具相关")
 	if len(args) == 1 {
-		if args[0] == "download" {
+		if args[0] == "init" {
 			PackageDownload()
 			return 0
 		}
@@ -37,7 +37,7 @@ func RunApp(cmd *commands.Command, args []string) int {
 		if strings.Contains(info, "dep:") {
 			color.Blue("存在 dep ")
 		} else {
-			color.Red("请先执行，dep download")
+			color.Red("请先执行，dep init")
 		}
 	}
 	return 0

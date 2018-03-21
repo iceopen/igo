@@ -24,7 +24,7 @@ func init() {
 // 执行核心
 func RunApp(cmd *commands.Command, args []string) int {
 	color.Red("goimports 工具相关")
-	if len(args) == 1 && args[0] == "download" {
+	if len(args) == 1 && args[0] == "init" {
 		// go get golang.org/x/tools/cmd/goimports
 		PackageDownload()
 	}

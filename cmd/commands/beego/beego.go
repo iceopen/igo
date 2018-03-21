@@ -11,7 +11,7 @@ import (
 // 加载 beego 工具
 
 var CmdRun = &commands.Command{
-	UsageLine: "beego [download] [init]",
+	UsageLine: "beego [init]",
 	Short:     "beego",
 	Long:      ``,
 	PreRun:    func(cmd *commands.Command, args []string) {},
@@ -25,7 +25,7 @@ func init() {
 // 执行核心
 func RunApp(cmd *commands.Command, args []string) int {
 	color.Red("beego 工具相关")
-	if len(args) == 1 && args[0] == "download" {
+	if len(args) == 1 && args[0] == "init" {
 		// 执行下载 go get github.com/astaxie/beego
 		//go get github.com/beego/bee
 		PackageDownload()
