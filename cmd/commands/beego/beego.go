@@ -2,9 +2,7 @@ package beego
 
 import (
 	"igo/cmd/commands"
-
 	"igo/utils/command"
-
 	"github.com/fatih/color"
 )
 

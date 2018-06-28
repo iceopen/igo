@@ -4,6 +4,7 @@ import (
 	"igo/cmd/commands"
 	_ "igo/cmd/commands/beego"
 	_ "igo/cmd/commands/dep"
+	_ "igo/cmd/commands/golang"
 	_ "igo/cmd/commands/goimports"
 	_ "igo/cmd/commands/version"
 	"igo/utils"
