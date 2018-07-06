@@ -1,36 +1,30 @@
 package dep
 
 import (
-	"igo/cmd/commands"
-
 	"igo/utils/command"
 
 	"strings"
 
 	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 )
 
-// 加载 dep 工具
-
-var CmdRun = &commands.Command{
-	UsageLine: "dep [init]",
-	Short:     "dep",
-	Long:      ``,
-	PreRun:    func(cmd *commands.Command, args []string) {},
-	Run:       RunApp,
-}
-
-func init() {
-	commands.AvailableCommands = append(commands.AvailableCommands, CmdRun)
+// 初始化 dep 命令
+func NewDepCommand() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "dep",
+		Short: "dep 初始化",
+		Run:   depCommandFn,
+	}
+	return cmd
 }
 
 // 执行核心
-func RunApp(cmd *commands.Command, args []string) int {
+func depCommandFn(cmd *cobra.Command, args []string) {
 	color.Red("dep 工具相关")
 	if len(args) == 1 {
 		if args[0] == "init" {
-			PackageDownload()
-			return 0
+			packageDownload()
 		}
 		//判断命令是否可用，如果可用提示直接使用dep命令。如果，不可以使用提示先进行下载操作
 		info := command.Run("dep", "version")
@@ -40,11 +34,10 @@ func RunApp(cmd *commands.Command, args []string) int {
 			color.Red("请先执行，dep init")
 		}
 	}
-	return 0
 }
 
 // 下载
-func PackageDownload() {
+func packageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 dep 开始")
 	command.Run("go", "get", "-u", "github.com/golang/dep/cmd/dep")

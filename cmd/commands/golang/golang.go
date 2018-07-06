@@ -1,41 +1,36 @@
-package dep
+package golang
 
 import (
-	"igo/cmd/commands"
-	"igo/utils/command"
-	"github.com/fatih/color"
 	"igo/utils"
+	"igo/utils/command"
+
+	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 )
 
 // 加载 dep 工具
-
-var CmdRun = &commands.Command{
-	UsageLine: "golang [init]",
-	Short:     "golang",
-	Long:      ``,
-	PreRun:    func(cmd *commands.Command, args []string) {},
-	Run:       RunApp,
-}
-
-func init() {
-	commands.AvailableCommands = append(commands.AvailableCommands, CmdRun)
+func NewGolangCommand() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "goimports",
+		Short: "goimports 初始化",
+		Run:   golangFn,
+	}
+	return cmd
 }
 
 // 执行核心
-func RunApp(cmd *commands.Command, args []string) int {
+func golangFn(cmd *cobra.Command, args []string) {
 	color.Red("golang 工具相关 ")
 	if len(args) == 1 {
 		if args[0] == "init" {
-			PackageDownload()
-			return 0
+			packageDownload()
 		}
-		color.Red("请先执行，dep init")
+		color.Red("请先执行，golang init")
 	}
-	return 0
 }
 
 // 下载
-func PackageDownload() {
+func packageDownload() {
 	xPath := utils.GetGOPATHs()[0] + "/src/golang.org/x"
 	// 判断目录是否存在
 	isExist := utils.IsExist(xPath)
