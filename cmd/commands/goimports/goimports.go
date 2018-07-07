@@ -20,15 +20,15 @@ func NewGoimportsCommand() *cobra.Command {
 
 // 执行核心
 func goimportsFn(cmd *cobra.Command, args []string) {
-	color.Red("goimports 工具相关")
+	color.Red("goimports 工具相关，请先执行 golang")
 	if len(args) == 1 && args[0] == "init" {
 		// go get golang.org/x/tools/cmd/goimports
-		packageDownload()
+		PackageDownload()
 	}
 }
 
 // 下载
-func packageDownload() {
+func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 goimports 开始")
 	command.Run("go", "get", "golang.org/x/tools/cmd/goimports")

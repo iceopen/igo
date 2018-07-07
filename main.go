@@ -13,6 +13,8 @@ import (
 
 	"igo/cmd/commands/golang"
 
+	"igo/cmd/commands/goinit"
+
 	"github.com/spf13/cobra"
 )
 
@@ -35,6 +37,7 @@ func init() {
 	rootCmd.AddCommand(beego.NewBeeCommand())
 	rootCmd.AddCommand(goimports.NewGoimportsCommand())
 	rootCmd.AddCommand(golang.NewGolangCommand())
+	rootCmd.AddCommand(goinit.NewInitCommand())
 }
 
 func main() {

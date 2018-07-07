@@ -24,12 +24,12 @@ func beegoCommandFn(cmd *cobra.Command, args []string) {
 	if len(args) == 1 && args[0] == "init" {
 		// 执行下载 go get github.com/astaxie/beego
 		//go get github.com/beego/bee
-		packageDownload()
+		PackageDownload()
 	}
 }
 
 // 下载
-func packageDownload() {
+func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 beego 开始")
 	command.Run("go", "get", "github.com/astaxie/beego")
