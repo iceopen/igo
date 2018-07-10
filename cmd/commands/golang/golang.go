@@ -13,8 +13,8 @@ import (
 // 加载 dep 工具
 func NewGolangCommand() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "goimports",
-		Short: "goimports 初始化",
+		Use:   "golang",
+		Short: "golang 初始化",
 		Run:   golangFn,
 	}
 	return cmd

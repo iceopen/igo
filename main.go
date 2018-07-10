@@ -41,6 +41,7 @@ func init() {
 }
 
 func main() {
+	// TODO 添加环境依赖判断 golang 和 git 安装配置
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(-1)
