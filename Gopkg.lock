@@ -2,31 +2,16 @@
 
 
 [[projects]]
-  name = "github.com/astaxie/beego"
-  packages = [
-    "swagger",
-    "utils"
-  ]
-  revision = "bf5c5626ab429e66d88602e1ab1ab5fbf4629a01"
-  version = "v1.9.2"
-
-[[projects]]
-  name = "github.com/beego/bee"
-  packages = [
-    "config",
-    "generate/swaggergen",
-    "logger",
-    "logger/colors",
-    "utils"
-  ]
-  revision = "1a79d6dcca0cfa714895f86f62ed9061e55e4914"
-  version = "v1.8.3"
-
-[[projects]]
   name = "github.com/fatih/color"
   packages = ["."]
   revision = "1b35f289c47d5c73c398cea8e006b7bcb6234a96"
   version = "v0.1"
+
+[[projects]]
+  name = "github.com/inconshreveable/mousetrap"
+  packages = ["."]
+  revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
+  version = "v1.0"
 
 [[projects]]
   branch = "master"
@@ -35,14 +20,20 @@
   revision = "a422bbe96644373c5753384a59d678f7d261ff10"
 
 [[projects]]
-  name = "gopkg.in/yaml.v2"
+  name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
-  version = "v2.1.1"
+  revision = "ef82de70bb3f60c65fb8eebacbb2d122ef517385"
+  version = "v0.0.3"
+
+[[projects]]
+  name = "github.com/spf13/pflag"
+  packages = ["."]
+  revision = "583c0c0531f06d5278b7d917446061adc344b5cd"
+  version = "v1.0.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "95e1f7fef19617ba215fee17acef3c48671fa59269b521fd121b1ddfddcc08a0"
+  inputs-digest = "a160cf38058f93fb954c90ac335afa377625206a4703ed50dce1e191ca16aa80"
   solver-name = "gps-cdcl"
   solver-version = 1

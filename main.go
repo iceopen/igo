@@ -1,56 +1,49 @@
 package main
 
 import (
-	"flag"
-	"igo/cmd"
-	"igo/cmd/commands"
-	"log"
+	"fmt"
 	"os"
-	"igo/utils"
+
+	"igo/cmd/commands/dep"
+	"igo/cmd/commands/version"
+
+	"igo/cmd/commands/beego"
+
+	"igo/cmd/commands/goimports"
+
+	"igo/cmd/commands/golang"
+
+	"igo/cmd/commands/goinit"
+
+	"github.com/spf13/cobra"
 )
 
+const (
+	cliName        = "igo"
+	cliDescription = "igo golang 开发辅助工具!"
+)
+
+var (
+	rootCmd = &cobra.Command{
+		Use:        cliName,
+		Short:      cliDescription,
+		SuggestFor: []string{"igo"},
+	}
+)
+
+func init() {
+	rootCmd.AddCommand(version.NewVersionCommand())
+	rootCmd.AddCommand(dep.NewDepCommand())
+	rootCmd.AddCommand(beego.NewBeeCommand())
+	rootCmd.AddCommand(goimports.NewGoimportsCommand())
+	rootCmd.AddCommand(golang.NewGolangCommand())
+	rootCmd.AddCommand(goinit.NewInitCommand())
+}
+
 func main() {
-	currentpath, _ := os.Getwd()
-
-	flag.Usage = cmd.Usage
-	flag.Parse()
-	log.SetFlags(0)
-
-	args := flag.Args()
-
-	if len(args) < 1 {
-		cmd.Usage()
-		os.Exit(2)
-		return
-	}
-
-	if args[0] == "help" {
-		cmd.Help(args[1:])
-		return
-	}
-
-	for _, c := range commands.AvailableCommands {
-		if c.Name() == args[0] && c.Run != nil {
-			c.Flag.Usage = func() { c.Usage() }
-			if c.CustomFlags {
-				args = args[1:]
-			} else {
-				c.Flag.Parse(args[1:])
-				args = c.Flag.Args()
-			}
-
-			if c.PreRun != nil {
-				c.PreRun(c, args)
-			}
-
-			// Check if current directory is inside the GOPATH,
-			// if so parse the packages inside it.
-			if utils.IsInGOPATH(currentpath) && cmd.IfGenerateDocs(c.Name(), args) {
-
-			}
-
-			os.Exit(c.Run(c, args))
-			return
-		}
+	// TODO 添加环境依赖判断 golang 和 git 安装配置
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(-1)
 	}
 }

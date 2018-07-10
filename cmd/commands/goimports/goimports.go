@@ -1,34 +1,30 @@
 package goimports
 
 import (
-	"igo/cmd/commands"
 	"igo/utils/command"
 
 	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 )
 
 // 加载 goimports 工具
 
-var CmdRun = &commands.Command{
-	UsageLine: "goimports [download] [init]",
-	Short:     "goimports",
-	Long:      ``,
-	PreRun:    func(cmd *commands.Command, args []string) {},
-	Run:       RunApp,
-}
-
-func init() {
-	commands.AvailableCommands = append(commands.AvailableCommands, CmdRun)
+func NewGoimportsCommand() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "goimports",
+		Short: "goimports 初始化",
+		Run:   goimportsFn,
+	}
+	return cmd
 }
 
 // 执行核心
-func RunApp(cmd *commands.Command, args []string) int {
-	color.Red("goimports 工具相关")
+func goimportsFn(cmd *cobra.Command, args []string) {
+	color.Red("goimports 工具相关，请先执行 golang")
 	if len(args) == 1 && args[0] == "init" {
 		// go get golang.org/x/tools/cmd/goimports
 		PackageDownload()
 	}
-	return 0
 }
 
 // 下载

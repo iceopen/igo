@@ -5,21 +5,25 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"os/exec"
 	"runtime"
+	"strings"
 	"text/template"
 	"time"
 )
 
+const version = "2.0.0"
+
 // RuntimeInfo holds information about the current runtime.
 type RuntimeInfo struct {
-	GoVersion    string
-	GOOS         string
-	GOARCH       string
-	NumCPU       int
-	GOPATH       string
-	GOROOT       string
-	Compiler     string
-	IgoVersion   string
+	GoVersion  string
+	GOOS       string
+	GOARCH     string
+	NumCPU     int
+	GOPATH     string
+	GOROOT     string
+	Compiler   string
+	IgoVersion string
 }
 
 // InitBanner loads the banner and prints it to output
@@ -65,4 +69,16 @@ func show(out io.Writer, content string) {
 // Now returns the current local time in the specified layout
 func Now(layout string) string {
 	return time.Now().Format(layout)
+}
+
+func GetGoVersion() string {
+	var (
+		cmdOut []byte
+		err    error
+	)
+
+	if cmdOut, err = exec.Command("go", "version").Output(); err != nil {
+		log.Fatal("There was an error running 'go version' command: %s", err)
+	}
+	return strings.Split(string(cmdOut), " ")[2]
 }

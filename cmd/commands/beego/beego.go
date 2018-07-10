@@ -1,34 +1,31 @@
 package beego
 
 import (
-	"igo/cmd/commands"
 	"igo/utils/command"
+
 	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 )
 
 // 加载 beego 工具
 
-var CmdRun = &commands.Command{
-	UsageLine: "beego [init]",
-	Short:     "beego",
-	Long:      ``,
-	PreRun:    func(cmd *commands.Command, args []string) {},
-	Run:       RunApp,
-}
-
-func init() {
-	commands.AvailableCommands = append(commands.AvailableCommands, CmdRun)
+func NewBeeCommand() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "beego",
+		Short: "beego 初始化",
+		Run:   beegoCommandFn,
+	}
+	return cmd
 }
 
 // 执行核心
-func RunApp(cmd *commands.Command, args []string) int {
+func beegoCommandFn(cmd *cobra.Command, args []string) {
 	color.Red("beego 工具相关")
 	if len(args) == 1 && args[0] == "init" {
 		// 执行下载 go get github.com/astaxie/beego
 		//go get github.com/beego/bee
 		PackageDownload()
 	}
-	return 0
 }
 
 // 下载
