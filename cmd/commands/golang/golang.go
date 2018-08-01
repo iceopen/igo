@@ -1,12 +1,11 @@
 package golang
 
 import (
-	"igo/utils"
-	"igo/utils/command"
-
 	"runtime"
 
 	"github.com/fatih/color"
+	"github.com/iceopen/igo/utils"
+	"github.com/iceopen/igo/utils/command"
 	"github.com/spf13/cobra"
 )
 

@@ -1,11 +1,10 @@
 package dep
 
 import (
-	"igo/utils/command"
-
 	"strings"
 
 	"github.com/fatih/color"
+	"github.com/iceopen/igo/utils/command"
 	"github.com/spf13/cobra"
 )
 
