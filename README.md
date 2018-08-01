@@ -1,6 +1,7 @@
 # igo
 Golang 开发辅助工具
-
+[![Build Status](https://travis-ci.org/iceopen/igo.svg?branch=master)](https://travis-ci.org/iceopen/igo)
+[![Go Report Card](https://goreportcard.com/badge/github.com/iceopen/igo)](https://goreportcard.com/report/github.com/iceopen/igo)
 ## 安装方式
 > go get github.com/iceopen/igo
 
