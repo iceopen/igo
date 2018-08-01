@@ -36,7 +36,7 @@ func InitBanner(out io.Writer, in io.Reader) {
 
 	banner, err := ioutil.ReadAll(in)
 	if err != nil {
-		log.Fatal("Error while trying to read the banner: %s", err)
+		log.Fatal(err)
 	}
 
 	show(out, string(banner))
@@ -48,7 +48,7 @@ func show(out io.Writer, content string) {
 		Parse(content)
 
 	if err != nil {
-		log.Fatal("Cannot parse the banner template: %s", err)
+		log.Fatal(err)
 	}
 
 	err = t.Execute(out, RuntimeInfo{
@@ -78,7 +78,7 @@ func GetGoVersion() string {
 	)
 
 	if cmdOut, err = exec.Command("go", "version").Output(); err != nil {
-		log.Fatal("There was an error running 'go version' command: %s", err)
+		log.Fatal(err)
 	}
 	return strings.Split(string(cmdOut), " ")[2]
 }

@@ -45,7 +45,7 @@ func PackageDownload() {
 	}
 	// https://github.com/golang/net.git
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
-	strs := []string{"net", "tools", "sys", "crypto", "text"}
+	strs := []string{"net", "tools", "sys", "crypto", "text", "oauth2", "image"}
 	for _, v := range strs {
 		if utils.IsExist(v) == false && utils.IsExist(xPath+"/"+v) == false {
 			color.Blue("下载 " + v + " 开始")
@@ -54,6 +54,7 @@ func PackageDownload() {
 		}
 		if utils.IsExist(xPath+"/"+v) == false {
 			color.Blue("移动 " + v + " 目录")
+			
 			command.Run(mvStr, v, xPath)
 			color.Blue("移动 " + v + " 结束")
 		}
