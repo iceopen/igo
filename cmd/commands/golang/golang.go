@@ -21,12 +21,13 @@ func NewGolangCommand() *cobra.Command {
 
 // 执行核心
 func golangFn(cmd *cobra.Command, args []string) {
-	color.Red("golang 工具相关 ")
+	color.Red("golang 环境初始化 ")
 	if len(args) == 1 {
 		if args[0] == "init" {
 			PackageDownload()
+		} else {
+			color.Red("请先执行，golang init")
 		}
-		color.Red("请先执行，golang init")
 	}
 }
 
@@ -45,16 +46,16 @@ func PackageDownload() {
 	}
 	// https://github.com/golang/net.git
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
-	strs := []string{"net", "tools", "sys", "crypto", "text", "oauth2", "image"}
+	strs := []string{"net", "tools", "sys", "crypto", "text", "image"}
 	for _, v := range strs {
 		if utils.IsExist(v) == false && utils.IsExist(xPath+"/"+v) == false {
 			color.Blue("下载 " + v + " 开始")
-			command.Run("git", "clone", "https://github.com/golang/"+v+".git")
+			command.Run("git", "clone", "https://gitee.com/iceinto/"+v+".git")
 			color.Blue("下载 " + v + " 结束")
 		}
 		if utils.IsExist(xPath+"/"+v) == false {
 			color.Blue("移动 " + v + " 目录")
-			
+
 			command.Run(mvStr, v, xPath)
 			color.Blue("移动 " + v + " 结束")
 		}
