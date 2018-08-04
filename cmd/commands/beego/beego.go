@@ -2,7 +2,7 @@ package beego
 
 import (
 	"github.com/fatih/color"
-	"github.com/iceopen/igo/utils/command"
+	"gitee.com/iceinto/igo/utils/command"
 	"github.com/spf13/cobra"
 )
 

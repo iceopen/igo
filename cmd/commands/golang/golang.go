@@ -4,8 +4,8 @@ import (
 	"runtime"
 
 	"github.com/fatih/color"
-	"github.com/iceopen/igo/utils"
-	"github.com/iceopen/igo/utils/command"
+	"gitee.com/iceinto/igo/utils"
+	"gitee.com/iceinto/igo/utils/command"
 	"github.com/spf13/cobra"
 )
 
