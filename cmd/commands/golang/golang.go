@@ -1,11 +1,12 @@
 package golang
 
 import (
-	"runtime"
+	"fmt"
+	"os"
 
-	"github.com/fatih/color"
 	"gitee.com/iceinto/igo/utils"
 	"gitee.com/iceinto/igo/utils/command"
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -33,10 +34,7 @@ func golangFn(cmd *cobra.Command, args []string) {
 
 // 下载
 func PackageDownload() {
-	mvStr := "mv"
-	if runtime.GOOS == "windows" {
-		mvStr = "move"
-	}
+
 	xPath := utils.GetGOPATHs()[0] + "/src/golang.org/x"
 	// 判断目录是否存在
 	isExist := utils.IsExist(xPath)
@@ -55,8 +53,10 @@ func PackageDownload() {
 		}
 		if utils.IsExist(xPath+"/"+v) == false {
 			color.Blue("移动 " + v + " 目录")
-
-			command.Run(mvStr, v, xPath)
+			fmt.Println(xPath)
+			//command.Run(mvStr, v, xPath)
+			//utils.CopyDir(v,xPath+"/"+v)
+			os.Rename(v, xPath+"/"+v)
 			color.Blue("移动 " + v + " 结束")
 		}
 	}
