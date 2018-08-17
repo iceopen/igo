@@ -21,8 +21,6 @@ func NewBeeCommand() *cobra.Command {
 func beegoCommandFn(cmd *cobra.Command, args []string) {
 	color.Red("beego 工具相关")
 	if len(args) == 1 && args[0] == "init" {
-		// 执行下载 go get github.com/astaxie/beego
-		//go get github.com/beego/bee
 		PackageDownload()
 	}
 }

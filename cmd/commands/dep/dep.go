@@ -25,7 +25,7 @@ func depCommandFn(cmd *cobra.Command, args []string) {
 		if args[0] == "init" {
 			PackageDownload()
 		}
-		//判断命令是否可用，如果可用提示直接使用dep命令。如果，不可以使用提示先进行下载操作
+		// 判断命令是否可用，如果可用提示直接使用dep命令。如果，不可以使用提示先进行下载操作
 		info := command.Run("dep", "version")
 		if strings.Contains(info, "dep:") {
 			color.Blue("存在 dep ")

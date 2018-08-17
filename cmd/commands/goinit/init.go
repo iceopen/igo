@@ -2,10 +2,10 @@ package goinit
 
 import (
 	"gitee.com/iceinto/igo/cmd/commands/beego"
-	"gitee.com/iceinto/igo/cmd/commands/dep"
 	"gitee.com/iceinto/igo/cmd/commands/goimports"
 	"gitee.com/iceinto/igo/cmd/commands/golang"
 	"github.com/spf13/cobra"
+	"gitee.com/iceinto/igo/cmd/commands/dep"
 )
 
 // 初始化  命令
@@ -22,6 +22,6 @@ func NewInitCommand() *cobra.Command {
 func initCommandFn(cmd *cobra.Command, args []string) {
 	golang.PackageDownload()
 	beego.PackageDownload()
-	dep.PackageDownload()
 	goimports.PackageDownload()
+	dep.PackageDownload()
 }

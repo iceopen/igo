@@ -1,7 +1,6 @@
 package golang
 
 import (
-	"fmt"
 	"os"
 
 	"gitee.com/iceinto/igo/utils"
@@ -53,9 +52,6 @@ func PackageDownload() {
 		}
 		if utils.IsExist(xPath+"/"+v) == false {
 			color.Blue("移动 " + v + " 目录")
-			fmt.Println(xPath)
-			//command.Run(mvStr, v, xPath)
-			//utils.CopyDir(v,xPath+"/"+v)
 			os.Rename(v, xPath+"/"+v)
 			color.Blue("移动 " + v + " 结束")
 		}
