@@ -1,8 +1,8 @@
 package beego
 
 import (
-	"github.com/fatih/color"
 	"gitee.com/iceinto/igo/utils/command"
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 

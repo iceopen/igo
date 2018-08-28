@@ -3,8 +3,8 @@ package dep
 import (
 	"strings"
 
-	"github.com/fatih/color"
 	"gitee.com/iceinto/igo/utils/command"
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -39,6 +39,6 @@ func depCommandFn(cmd *cobra.Command, args []string) {
 func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 dep 开始")
-	command.Run("go", "get", "-u", "github.com/golang/dep/cmd/dep")
+	command.Run("go", "get", "-v", "github.com/golang/dep/cmd/dep")
 	color.Blue("下载 dep 结束")
 }

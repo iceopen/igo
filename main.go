@@ -6,6 +6,7 @@ import (
 
 	"gitee.com/iceinto/igo/cmd/commands/beego"
 	"gitee.com/iceinto/igo/cmd/commands/dep"
+	"gitee.com/iceinto/igo/cmd/commands/echo"
 	"gitee.com/iceinto/igo/cmd/commands/goimports"
 	"gitee.com/iceinto/igo/cmd/commands/goinit"
 	"gitee.com/iceinto/igo/cmd/commands/golang"
@@ -33,6 +34,7 @@ func init() {
 	rootCmd.AddCommand(goimports.NewGoimportsCommand())
 	rootCmd.AddCommand(golang.NewGolangCommand())
 	rootCmd.AddCommand(goinit.NewInitCommand())
+	rootCmd.AddCommand(echo.NewEchoCommand())
 }
 
 func main() {
