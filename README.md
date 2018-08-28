@@ -1,9 +1,6 @@
 # igo
 Golang 开发辅助工具加速基础环境搭建
 
-[![Build Status](https://travis-ci.org/iceopen/igo.svg?branch=master)](https://travis-ci.org/iceopen/igo)
-[![Go Report Card](https://goreportcard.com/badge/github.com/iceopen/igo)](https://goreportcard.com/report/github.com/iceopen/igo)
-
 ## 安装方式
 > go get gitee.com/iceinto/igo
 
@@ -17,9 +14,11 @@ Usage:
 Available Commands:
   beego       beego 初始化
   dep         dep 初始化
-  golang   golang 初始化
+  echo        echo 初始化
   goimports   goimports 初始化
+  golang      golang 初始化
   help        Help about any command
+  init        初始化 golang 开发环境基础依赖
   version     Print the version
 
 Flags:
