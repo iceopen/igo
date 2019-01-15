@@ -10,6 +10,7 @@ import (
 	"github.com/iceopen/igo/cmd/commands/goimports"
 	"github.com/iceopen/igo/cmd/commands/goinit"
 	"github.com/iceopen/igo/cmd/commands/golang"
+	"github.com/iceopen/igo/cmd/commands/gops"
 	"github.com/iceopen/igo/cmd/commands/version"
 	"github.com/spf13/cobra"
 )
@@ -35,6 +36,7 @@ func init() {
 	rootCmd.AddCommand(golang.NewGolangCommand())
 	rootCmd.AddCommand(goinit.NewInitCommand())
 	rootCmd.AddCommand(echo.NewEchoCommand())
+	rootCmd.AddCommand(gops.NewGoPsCommand())
 }
 
 func main() {
