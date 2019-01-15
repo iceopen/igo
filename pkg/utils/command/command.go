@@ -5,7 +5,7 @@ import (
 	"os/exec"
 )
 
-// 运行命令行
+// Run 运行命令行
 func Run(name string, arg ...string) string {
 	cmd := exec.Command(name, arg...)
 	out, err := cmd.CombinedOutput()
