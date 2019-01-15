@@ -3,9 +3,9 @@ package golang
 import (
 	"os"
 
-	"gitee.com/iceinto/igo/utils"
-	"gitee.com/iceinto/igo/utils/command"
 	"github.com/fatih/color"
+	"github.com/iceopen/igo/pkg/utils"
+	"github.com/iceopen/igo/pkg/utils/command"
 	"github.com/spf13/cobra"
 )
 
@@ -43,11 +43,11 @@ func PackageDownload() {
 	}
 	// https://github.com/golang/net.git
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
-	strs := []string{"net", "tools", "sys", "crypto", "text", "image"}
+	strs := []string{"net", "tools", "sys", "crypto", "text", "image", "mock", "snappy", "lint"}
 	for _, v := range strs {
 		if utils.IsExist(v) == false && utils.IsExist(xPath+"/"+v) == false {
 			color.Blue("下载 " + v + " 开始")
-			command.Run("git", "clone", "https://gitee.com/iceinto/"+v+".git")
+			command.Run("git", "clone", "https://github.com/golang/"+v+".git")
 			color.Blue("下载 " + v + " 结束")
 		}
 		if utils.IsExist(xPath+"/"+v) == false {
@@ -56,5 +56,4 @@ func PackageDownload() {
 			color.Blue("移动 " + v + " 结束")
 		}
 	}
-
 }

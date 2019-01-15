@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	"gitee.com/iceinto/igo/cmd/commands/beego"
-	"gitee.com/iceinto/igo/cmd/commands/dep"
-	"gitee.com/iceinto/igo/cmd/commands/echo"
-	"gitee.com/iceinto/igo/cmd/commands/goimports"
-	"gitee.com/iceinto/igo/cmd/commands/goinit"
-	"gitee.com/iceinto/igo/cmd/commands/golang"
-	"gitee.com/iceinto/igo/cmd/commands/version"
+	"github.com/iceopen/igo/cmd/commands/beego"
+	"github.com/iceopen/igo/cmd/commands/dep"
+	"github.com/iceopen/igo/cmd/commands/echo"
+	"github.com/iceopen/igo/cmd/commands/goimports"
+	"github.com/iceopen/igo/cmd/commands/goinit"
+	"github.com/iceopen/igo/cmd/commands/golang"
+	"github.com/iceopen/igo/cmd/commands/version"
 	"github.com/spf13/cobra"
 )
 

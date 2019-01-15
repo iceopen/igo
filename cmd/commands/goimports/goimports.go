@@ -1,8 +1,8 @@
 package goimports
 
 import (
-	"gitee.com/iceinto/igo/utils/command"
 	"github.com/fatih/color"
+	"github.com/iceopen/igo/pkg/utils/command"
 	"github.com/spf13/cobra"
 )
 
