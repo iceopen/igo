@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// 初始化 dep 命令
+// NewDepCommand 初始化 dep 命令
 func NewDepCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "dep",
@@ -35,7 +35,7 @@ func depCommandFn(cmd *cobra.Command, args []string) {
 	}
 }
 
-// 下载
+// PackageDownload 下载
 func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 dep 开始")

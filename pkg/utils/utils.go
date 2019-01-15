@@ -2,27 +2,11 @@ package utils
 
 import (
 	"fmt"
-	"html/template"
-	"log"
 	"os"
-	"strings"
-	"runtime"
 	"path/filepath"
+	"runtime"
+	"strings"
 )
-
-func Tmpl(text string, data interface{}) {
-	t := template.New("Usage")
-	template.Must(t.Parse(text))
-	err := t.Execute(os.Stdout, data)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-}
-
-func PrintErrorAndExit(message, errorTemplate string) {
-	Tmpl(fmt.Sprintf(errorTemplate, message), nil)
-	os.Exit(2)
-}
 
 // IsExist returns whether a file or directory exists.
 func IsExist(path string) bool {
@@ -30,7 +14,7 @@ func IsExist(path string) bool {
 	return err == nil || os.IsExist(err)
 }
 
-// 循环创建目录
+// CreateDirs 循环创建目录
 func CreateDirs(path string) {
 	err := os.MkdirAll(path, 0755)
 	if err != nil {

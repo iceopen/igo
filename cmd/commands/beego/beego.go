@@ -6,8 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// 加载 beego 工具
-
+// NewBeeCommand 加载 beego 工具
 func NewBeeCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "beego",
@@ -17,7 +16,7 @@ func NewBeeCommand() *cobra.Command {
 	return cmd
 }
 
-// 执行核心
+// beegoCommandFn 执行核心
 func beegoCommandFn(cmd *cobra.Command, args []string) {
 	color.Red("beego 工具相关")
 	if len(args) == 1 && args[0] == "init" {
@@ -25,7 +24,7 @@ func beegoCommandFn(cmd *cobra.Command, args []string) {
 	}
 }
 
-// 下载
+// PackageDownload 下载
 func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 beego 开始")

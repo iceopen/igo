@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// 加载 dep 工具
+// NewGolangCommand 加载 dep 工具
 func NewGolangCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "golang",
@@ -31,7 +31,7 @@ func golangFn(cmd *cobra.Command, args []string) {
 	}
 }
 
-// 下载
+// PackageDownload 下载
 func PackageDownload() {
 
 	xPath := utils.GetGOPATHs()[0] + "/src/golang.org/x"

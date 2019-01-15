@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// 初始化  命令
+// NewInitCommand  初始化  命令
 func NewInitCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "init",

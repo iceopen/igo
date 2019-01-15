@@ -71,6 +71,7 @@ func Now(layout string) string {
 	return time.Now().Format(layout)
 }
 
+// GetGoVersion get now version
 func GetGoVersion() string {
 	var (
 		cmdOut []byte

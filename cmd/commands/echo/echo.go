@@ -6,8 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// 加载 echo 工具
-
+// NewEchoCommand 加载 echo 工具
 func NewEchoCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "echo",
@@ -25,7 +24,7 @@ func echoCommandFn(cmd *cobra.Command, args []string) {
 	}
 }
 
-// 下载
+// PackageDownload 下载
 func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 echo 开始")

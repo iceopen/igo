@@ -6,8 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// 加载 goimports 工具
-
+// NewGoimportsCommand 加载 goimports 工具
 func NewGoimportsCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "goimports",
@@ -26,7 +25,7 @@ func goimportsFn(cmd *cobra.Command, args []string) {
 	}
 }
 
-// 下载
+// PackageDownload 下载
 func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 goimports 开始")
