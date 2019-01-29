@@ -7,10 +7,7 @@ Golang 开发辅助工具加速基础环境搭建
 [![codecov](https://codecov.io/gh/iceopen/igo/branch/master/graph/badge.svg)](https://codecov.io/gh/iceopen/igo)
 
 ## 安装方式
-<<<<<<< HEAD
 
-=======
->>>>>>> df2ec282f1f6c96dd28c8f30298fa478e0dc1295
 > go get github.com/iceopen/igo
 
 ## 使用说明

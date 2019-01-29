@@ -21,7 +21,7 @@ func NewInitCommand() *cobra.Command {
 
 // 执行核心
 func initCommandFn(cmd *cobra.Command, args []string) {
-	golang.PackageDownload()
+	golang.PackageDownload(false)
 	goimports.PackageDownload()
 	dep.PackageDownload()
 	beego.PackageDownload()

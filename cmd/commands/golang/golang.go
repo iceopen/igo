@@ -24,7 +24,9 @@ func golangFn(cmd *cobra.Command, args []string) {
 	color.Red("golang 环境初始化 ")
 	if len(args) == 1 {
 		if args[0] == "init" {
-			PackageDownload()
+			PackageDownload(false)
+		} else if args[0] == "update" {
+			PackageDownload(true)
 		} else {
 			color.Red("请先执行，golang init")
 		}
@@ -32,8 +34,7 @@ func golangFn(cmd *cobra.Command, args []string) {
 }
 
 // PackageDownload 下载
-func PackageDownload() {
-
+func PackageDownload(update bool) {
 	xPath := utils.GetGOPATHs()[0] + "/src/golang.org/x"
 	// 判断目录是否存在
 	isExist := utils.IsExist(xPath)
@@ -45,7 +46,7 @@ func PackageDownload() {
 	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	strs := []string{"net", "tools", "sys", "crypto", "text", "image", "mock", "snappy", "lint"}
 	for _, v := range strs {
-		if utils.IsExist(v) == false && utils.IsExist(xPath+"/"+v) == false {
+		if (utils.IsExist(v) == false && utils.IsExist(xPath+"/"+v) == false) || update {
 			color.Blue("下载 " + v + " 开始")
 			command.Run("git", "clone", "https://github.com/golang/"+v+".git")
 			color.Blue("下载 " + v + " 结束")
