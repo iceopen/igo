@@ -1,4 +1,5 @@
 # igo
+
 Golang 开发辅助工具加速基础环境搭建
 
 [![Build Status](https://travis-ci.org/iceopen/igo.svg?branch=master)](https://travis-ci.org/iceopen/igo)
@@ -6,10 +7,12 @@ Golang 开发辅助工具加速基础环境搭建
 [![codecov](https://codecov.io/gh/iceopen/igo/branch/master/graph/badge.svg)](https://codecov.io/gh/iceopen/igo)
 
 ## 安装方式
-> go get gitee.com/iceinto/igo
+
+> go get github.com/iceopen/igo
 
 ## 使用说明
-```
+
+```golang
 igo golang 开发辅助工具!
 
 Usage:
@@ -32,7 +35,5 @@ Use "igo [command] --help" for more information about a command.
 ```
 
 ## 注意事项说明
-goimports 使用前需要执行 golang 命令
 
-## 感谢
-码云提供的服务
+goimports 使用前需要执行 golang 命令
