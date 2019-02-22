@@ -1,4 +1,5 @@
 OPTS=""
+X="-w -s"
 
 #linux
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build $OPTS -ldflags "$X" -o bin/igo && tar zcfv "bin/igo-linux-amd64.tar.gz" bin/igo
