@@ -27,7 +27,6 @@ func gopsFn(cmd *cobra.Command, args []string) {
 
 // PackageDownload 下载
 func PackageDownload() {
-	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 gops 开始")
 	command.Run("go", "get", "github.com/google/gops")
 	color.Blue("下载 gops 结束")

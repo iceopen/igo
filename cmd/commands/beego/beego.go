@@ -26,7 +26,6 @@ func beegoCommandFn(cmd *cobra.Command, args []string) {
 
 // PackageDownload 下载
 func PackageDownload() {
-	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	color.Blue("下载 beego 开始")
 	command.Run("go", "get", "github.com/astaxie/beego")
 	command.Run("go", "get", "github.com/beego/bee")

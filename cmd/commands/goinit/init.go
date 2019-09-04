@@ -2,7 +2,6 @@ package goinit
 
 import (
 	"github.com/iceopen/igo/cmd/commands/beego"
-	"github.com/iceopen/igo/cmd/commands/dep"
 	"github.com/iceopen/igo/cmd/commands/echo"
 	"github.com/iceopen/igo/cmd/commands/goimports"
 	"github.com/iceopen/igo/cmd/commands/golang"
@@ -23,7 +22,6 @@ func NewInitCommand() *cobra.Command {
 func initCommandFn(cmd *cobra.Command, args []string) {
 	golang.PackageDownload(false)
 	goimports.PackageDownload()
-	dep.PackageDownload()
 	beego.PackageDownload()
 	echo.PackageDownload()
 }

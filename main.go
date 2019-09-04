@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"github.com/iceopen/igo/cmd/commands/beego"
-	"github.com/iceopen/igo/cmd/commands/dep"
 	"github.com/iceopen/igo/cmd/commands/echo"
 	"github.com/iceopen/igo/cmd/commands/goimports"
 	"github.com/iceopen/igo/cmd/commands/goinit"
@@ -18,7 +17,7 @@ import (
 
 const (
 	cliName        = "igo"
-	cliDescription = "igo golang 开发辅助工具!"
+	cliDescription = "igo Go 开发环境辅助工具!"
 )
 
 var (
@@ -31,7 +30,6 @@ var (
 
 func init() {
 	rootCmd.AddCommand(version.NewVersionCommand())
-	rootCmd.AddCommand(dep.NewDepCommand())
 	rootCmd.AddCommand(beego.NewBeeCommand())
 	rootCmd.AddCommand(goimports.NewGoimportsCommand())
 	rootCmd.AddCommand(golang.NewGolangCommand())

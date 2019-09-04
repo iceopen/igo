@@ -43,7 +43,6 @@ func PackageDownload(update bool) {
 		utils.CreateDirs(xPath)
 	}
 	// https://github.com/golang/net.git
-	// 执行下载 go get -u github.com/golang/dep/cmd/dep
 	strs := []string{"net", "tools", "sys", "crypto", "text", "image", "mock", "snappy", "lint"}
 	for _, v := range strs {
 		if (utils.IsExist(v) == false && utils.IsExist(xPath+"/"+v) == false) || update {
