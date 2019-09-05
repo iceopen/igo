@@ -21,6 +21,7 @@ Usage:
 Available Commands:
   beego       beego 初始化
   dep         dep 初始化
+  echo        echo 初始化
   goimports   goimports 初始化
   golang      golang 初始化
   help        Help about any command
