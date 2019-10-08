@@ -1,7 +1,9 @@
 module github.com/iceopen/igo
 
 require (
+	github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d // indirect
 	github.com/fatih/color v0.0.0-20150510220652-1b35f289c47d
+	github.com/go-ole/go-ole v1.2.4 // indirect
 	github.com/google/gops v0.3.5
 	github.com/google/uuid v1.1.0
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect

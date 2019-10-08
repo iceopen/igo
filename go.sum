@@ -1,5 +1,9 @@
+github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d h1:G0m3OIz70MZUWq3EgK3CesDbo8upS2Vm9/P3FtgI+Jk=
+github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d/go.mod h1:3eOhrUMpNV+6aFIbp5/iudMxNCF27Vw2OZgy4xEx0Fg=
 github.com/fatih/color v0.0.0-20150510220652-1b35f289c47d h1:wMOLsfJ92CRGk3+GtVk+aaUme+jWTH21jH3cVL1jzmI=
 github.com/fatih/color v0.0.0-20150510220652-1b35f289c47d/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
+github.com/go-ole/go-ole v1.2.4 h1:nNBDSCOigTSiarFpYE9J/KtEA1IOW4CNeqT9TQDqCxI=
+github.com/go-ole/go-ole v1.2.4/go.mod h1:XCwSNxSkXRo4vlyPy93sltvi/qJq0jqQhjqQNIwKuxM=
 github.com/google/gops v0.3.5 h1:SIWvPLiYvy5vMwjxB3rVFTE4QBhUFj2KKWr3Xm7CKhw=
 github.com/google/gops v0.3.5/go.mod h1:pMQgrscwEK/aUSW1IFSaBPbJX82FPHWaSoJw1axQfD0=
 github.com/google/uuid v1.1.0 h1:Jf4mxPC/ziBnoPIdpQdPJ9OeiomAUHLvxmPRSPH9m4s=
