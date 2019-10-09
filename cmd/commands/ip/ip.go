@@ -23,7 +23,7 @@ func getCmdNet(cmd *cobra.Command, args []string) {
 	getInterfaces()
 }
 
-func getInterfaces()  {
+func getInterfaces() {
 	s, _ := net.Interfaces()
 	if len(s) > 0 {
 		for key, value := range s {

@@ -47,13 +47,18 @@ func PackageDownload(update bool) {
 	for _, v := range strs {
 		if (utils.IsExist(v) == false && utils.IsExist(xPath+"/"+v) == false) || update {
 			color.Blue("下载 " + v + " 开始")
+			os.RemoveAll("./" + v)
 			command.Run("git", "clone", "https://github.com/golang/"+v+".git")
 			color.Blue("下载 " + v + " 结束")
 		}
-		if utils.IsExist(xPath+"/"+v) == false {
+		if utils.IsExist(xPath+"/"+v) == false || update {
 			color.Blue("移动 " + v + " 目录")
+			// 移除老的文件目录
+			os.RemoveAll(xPath + "/" + v)
 			os.Rename(v, xPath+"/"+v)
 			color.Blue("移动 " + v + " 结束")
 		}
+		// 删除本地缓存文件目录
+		os.RemoveAll("./" + v)
 	}
 }
