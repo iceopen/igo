@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/iceopen/igo/cmd/commands/vscode"
 	"os"
 
 	"github.com/iceopen/igo/cmd/commands/beego"
@@ -39,6 +40,7 @@ func init() {
 	rootCmd.AddCommand(gops.NewGoPsCommand())
 	rootCmd.AddCommand(ip.NewIpCommand())
 	rootCmd.AddCommand(update.NewUpdateCommand())
+	rootCmd.AddCommand(vscode.VsCodeCommand())
 }
 
 func main() {
