@@ -5,7 +5,7 @@ jobs:
     environment:
       TEST_RESULTS: /tmp/test-results
     docker:
-      - image: circleci/golang:1.50
+      - image: circleci/golang:1.15-buster-node-browsers-legacy
     steps:
       - checkout
       - run: go vet ./...
