@@ -28,6 +28,6 @@ func gopsFn(cmd *cobra.Command, args []string) {
 // PackageDownload 下载
 func PackageDownload() {
 	color.Blue("下载 gops 开始")
-	command.Run("go", "get", "github.com/google/gops")
+	command.Run("go", "install", "github.com/google/gops")
 	color.Blue("下载 gops 结束")
 }

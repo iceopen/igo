@@ -9,7 +9,6 @@ import (
 	"github.com/iceopen/igo/cmd/commands/echo"
 	"github.com/iceopen/igo/cmd/commands/goimports"
 	"github.com/iceopen/igo/cmd/commands/goinit"
-	"github.com/iceopen/igo/cmd/commands/golang"
 	"github.com/iceopen/igo/cmd/commands/gops"
 	"github.com/iceopen/igo/cmd/commands/ip"
 	"github.com/iceopen/igo/cmd/commands/update"
@@ -34,7 +33,6 @@ func init() {
 	rootCmd.AddCommand(version.NewVersionCommand())
 	rootCmd.AddCommand(beego.NewBeeCommand())
 	rootCmd.AddCommand(goimports.NewGoimportsCommand())
-	rootCmd.AddCommand(golang.NewGolangCommand())
 	rootCmd.AddCommand(goinit.NewInitCommand())
 	rootCmd.AddCommand(echo.NewEchoCommand())
 	rootCmd.AddCommand(gops.NewGoPsCommand())

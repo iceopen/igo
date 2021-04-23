@@ -28,6 +28,6 @@ func goimportsFn(cmd *cobra.Command, args []string) {
 // PackageDownload 下载
 func PackageDownload() {
 	color.Blue("下载 goimports 开始")
-	command.Run("go", "get", "golang.org/x/tools/cmd/goimports")
+	command.Run("go", "install", "golang.org/x/tools/cmd/goimports")
 	color.Blue("下载 goimports 结束")
 }
