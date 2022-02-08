@@ -7,3 +7,6 @@ release:
 clean:
 	@echo "--> Cleaning..."
 	@rm -f bin/*
+	
+test:
+	go test ./... -covermode=atomic
