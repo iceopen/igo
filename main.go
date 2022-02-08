@@ -2,14 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/iceopen/igo/cmd/commands/vscode"
 	"os"
 
-	"github.com/iceopen/igo/cmd/commands/beego"
-	"github.com/iceopen/igo/cmd/commands/echo"
 	"github.com/iceopen/igo/cmd/commands/goimports"
 	"github.com/iceopen/igo/cmd/commands/goinit"
-	"github.com/iceopen/igo/cmd/commands/gops"
 	"github.com/iceopen/igo/cmd/commands/ip"
 	"github.com/iceopen/igo/cmd/commands/update"
 	"github.com/iceopen/igo/cmd/commands/version"
@@ -31,14 +27,10 @@ var (
 
 func init() {
 	rootCmd.AddCommand(version.NewVersionCommand())
-	rootCmd.AddCommand(beego.NewBeeCommand())
 	rootCmd.AddCommand(goimports.NewGoimportsCommand())
 	rootCmd.AddCommand(goinit.NewInitCommand())
-	rootCmd.AddCommand(echo.NewEchoCommand())
-	rootCmd.AddCommand(gops.NewGoPsCommand())
 	rootCmd.AddCommand(ip.NewIpCommand())
 	rootCmd.AddCommand(update.NewUpdateCommand())
-	rootCmd.AddCommand(vscode.VsCodeCommand())
 }
 
 func main() {
