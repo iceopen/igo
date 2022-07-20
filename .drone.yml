@@ -1,10 +1,10 @@
 ---
 kind: pipeline
-name: test-1-16
+name: test-1-18
 
 steps:
   - name: test
-    image: golang:1.16
+    image: golang:1.18
     commands:
       - export GO111MODULE=on
       - export GOPROXY=https://goproxy.cn
@@ -24,5 +24,19 @@ steps:
       - go version
       - make test
       - make release
+---
+kind: pipeline
+name: docker-build
 
+steps:
+  - name: docker-build-push
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: iceinto/igo
+      tags: latest
+      insecure: true
 ...

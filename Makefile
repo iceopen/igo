@@ -2,8 +2,7 @@ default: release
 
 release:
 	@rm -f bin/*
-	@/bin/bash ./scripts/release.sh
-
+	go build -o bin/igo
 clean:
 	@echo "--> Cleaning..."
 	@rm -f bin/*
