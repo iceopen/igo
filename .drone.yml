@@ -38,5 +38,4 @@ steps:
         from_secret: docker_password
       repo: iceinto/igo
       tags: latest
-      insecure: true
 ...
