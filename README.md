@@ -4,7 +4,7 @@ Golang 开发辅助工具加速基础环境搭建
 
 [![Build Status](https://travis-ci.org/iceopen/igo.svg?branch=master)](https://travis-ci.org/iceopen/igo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/iceopen/igo)](https://goreportcard.com/report/github.com/iceopen/igo)
-
+[![OSCS Status](https://www.oscs1024.com/platform/badge/iceopen/igo.svg?size=small)](https://www.murphysec.com/dr/BagjzHn0hrAH0b064C)
 
 ## 安装方式
 
